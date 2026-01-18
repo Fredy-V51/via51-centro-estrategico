@@ -1,0 +1,11 @@
+﻿01_vision.txt
+02_areas.txt
+03_politico.txt
+10_campana.txt
+11_monitoreo_medios.txt
+04_comercial.txt
+05_industrial.txt
+06_servicios.txt
+07_tecnociencia.txt
+08_organizaciones.txt
+09_personas.txt

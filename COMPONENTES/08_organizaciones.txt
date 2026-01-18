@@ -1,0 +1,2 @@
+﻿--- ÁREA: ORGANIZACIONES ---
+Foco: Mapeo de entidades públicas y privadas con poder de ejecución.

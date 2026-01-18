@@ -1,0 +1,4 @@
+﻿--- ÁREA: POLÍTICO-SOCIAL ---
+OBJETIVO: Identificar y mapear actores clave para la transformación nacional.
+ESTRATEGIA: Clasificación de visitantes jerarquizados y mapeo de influencias.
+ESTADO: Fase de recolección de perfiles activa.

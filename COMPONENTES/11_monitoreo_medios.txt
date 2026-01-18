@@ -1,0 +1,27 @@
+﻿--- MONITOREO DE MEDIOS: SEGUIMIENTO AUDIOVISUAL ---
+NIVEL: DIPUTADOS / SENADORES
+ESTADO: Procesado por Motor V51 (Whisper)
+--------------------------------------------------
+FECHA: 18/01/2026
+FUENTE: YouTube Shorts (https://www.youtube.com/shorts/6xfIovfa0AM)
+ANÁLISIS DOCTRINARIO: Bajo revisión de alineación con Patria Grande.
+ALERTAS: Ninguna detectada (Costo  - Procesamiento Local).
+
+
+FECHA: 18/01/2026
+CANDIDATO: NOMBRE_CANDIDATO (DIPUTADO)
+FUENTE: https://www.youtube.com/shorts/6xfIovfa0AM
+ESTADO: Pendiente de Transcripción
+
+
+FECHA: 18/01/2026
+CANDIDATO: NOMBRE_CANDIDATO (DIPUTADO)
+FUENTE: https://www.youtube.com/shorts/6xfIovfa0AM
+ESTADO: Pendiente de Transcripción
+
+
+FECHA: 18/01/2026
+CANDIDATO: NOMBRE_CANDIDATO (DIPUTADO)
+FUENTE: https://www.youtube.com/shorts/6xfIovfa0AM
+ESTADO: Pendiente de Transcripción
+

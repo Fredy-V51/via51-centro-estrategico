@@ -2,71 +2,111 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>VÍA 51 - Centro Estratégico</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vía 51 - Centro Estratégico</title>
     <style>
-        body { background-color: #0d1117; color: #c9d1d9; font-family: 'Segoe UI', sans-serif; margin: 0; }
-        .header-v51 { background-color: #161b22; border-bottom: 2px solid #6f42c1; padding: 30px; text-align: center; }
-        .container-v51 { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
-        .block-title { border-left: 5px solid #bc8cff; padding-left: 15px; margin: 40px 0 20px; color: #f0f6fc; font-size: 1.3rem; text-transform: uppercase; font-weight: bold; letter-spacing: 2px; }
-        .strategy-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 25px; margin-bottom: 50px; }
-        .card-v51 { background-color: #1c2128; border: 1px solid #30363d; border-radius: 12px; padding: 0; overflow: hidden; transition: 0.4s; height: 100%; display: flex; flex-direction: column; }
-        .card-v51:hover { border-color: #bc8cff; transform: translateY(-10px); box-shadow: 0 10px 20px rgba(111, 66, 193, 0.2); }
-        .card-body-v51 { padding: 25px; flex-grow: 1; }
-        .card-title { font-size: 1rem; font-weight: 800; color: #bc8cff; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px; }
-        .card-text { font-size: 0.9rem; line-height: 1.6; color: #c9d1d9; text-align: justify; }
-        .card-image { width: 100%; height: 220px; object-fit: cover; border-bottom: 1px solid #30363d; }
-        .accent-purple { color: #bc8cff; }
+        body { background-color: #0a0a0a; color: #e0e0e0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; text-align: center; }
+        .header { border-bottom: 2px solid #6a1b9a; padding-bottom: 20px; margin-bottom: 30px; }
+        h1 { color: #9c27b0; letter-spacing: 2px; }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: auto; }
+        .card { background: #1a1a1a; border: 1px solid #333; padding: 20px; border-radius: 10px; transition: 0.3s; cursor: pointer; position: relative; overflow: hidden; }
+        .card:hover { border-color: #9c27b0; box-shadow: 0 0 15px rgba(156, 39, 176, 0.3); transform: translateY(-5px); }
+        h3 { color: #ba68c8; margin-top: 0; }
+        p { font-size: 0.9em; line-height: 1.4; color: #b0b0b0; }
+        .btn-plus { background: #4a148c; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; margin-top: 10px; font-size: 0.8em; }
+        .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); }
+        .modal-content { background: #1a1a1a; margin: 10% auto; padding: 30px; border: 1px solid #9c27b0; width: 80%; max-width: 600px; border-radius: 15px; text-align: left; }
     </style>
 </head>
 <body>
-    <header class="header-v51">
-        <h1 class="h2 text-white fw-bold m-0">VÍA 51 <span class="accent-purple">| CENTRO ESTRATÉGICO</span></h1>
-        <p class="text-muted mt-2">Operación Ayllu Morado - Inteligencia Táctica de Campo</p>
-    </header>
+    <div class="header">
+        <h1>VÍA 51 - CENTRO ESTRATÉGICO</h1>
+        <p>Recurso Tecnológico de Comunicación | Estándar de Calidad Mundial</p>
+    </div>
 
-    <div class="container-v51">
-        <div class="block-title">1. Núcleo de Identidad</div>
-        <div class="strategy-grid">
-            <div class="card-v51">
-                <div class="card-body-v51">
-                    <div class="card-title">01 IDEOLOGÍA</div>
-                    <p class="card-text">Modernidad Andina: El fin del asistencialismo. Propugnamos una sociedad de retorno de inversión, donde el capital y la tradición andina se funden para erradicar la pobreza mediante la productividad.</p>
-                </div>
-            </div>
-            <div class="card-v51">
-                <div class="card-body-v51">
-                    <div class="card-title">03 ORGANIZACIÓN</div>
-                    <p class="card-text">Estructura Ayni: Cooperación mutua y disciplina. Nuestras bases operan como un sistema vivo, protegiendo el voto y expandiendo el mensaje en cada rincón del territorio.</p>
-                </div>
-            </div>
+    <div class="grid-container">
+                <div class='card' onclick='showInfo(0)'>
+            <h3>01. Identidad</h3>
+            <p>Autoría: Fredy V51. Registro de colaboradores y visión del Proyecto Fénix.</p>
+            <button class='btn-plus'>Ver Impacto +</button>
+        </div>        <div class='card' onclick='showInfo(1)'>
+            <h3>02. Ideología Productiva</h3>
+            <p>Tránsito del modelo asistencial al modelo de rentabilidad social y autonomía.</p>
+            <button class='btn-plus'>Ver Impacto +</button>
+        </div>        <div class='card' onclick='showInfo(2)'>
+            <h3>03. Infraestructura Estratégica</h3>
+            <p>Conectividad digital, transporte multimodal y gestión de campaña como motor de enlace.</p>
+            <button class='btn-plus'>Ver Impacto +</button>
+        </div>        <div class='card' onclick='showInfo(3)'>
+            <h3>04. Organización Ayni</h3>
+            <p>Sistemas de cooperación mutua y disciplina operativa para la eficiencia colectiva.</p>
+            <button class='btn-plus'>Ver Impacto +</button>
+        </div>        <div class='card' onclick='showInfo(4)'>
+            <h3>05. Blindaje Legal</h3>
+            <p>Marco jurídico robusto para la protección del ciudadano, el capital y el entorno natural.</p>
+            <button class='btn-plus'>Ver Impacto +</button>
+        </div>        <div class='card' onclick='showInfo(5)'>
+            <h3>06. Desarrollo Industrial</h3>
+            <p>Transformación de recursos en origen para la generación de valor agregado real.</p>
+            <button class='btn-plus'>Ver Impacto +</button>
+        </div>        <div class='card' onclick='showInfo(6)'>
+            <h3>07. Tecnociencia</h3>
+            <p>Uso de IA y Big Data para la transparencia pública y la optimización de procesos.</p>
+            <button class='btn-plus'>Ver Impacto +</button>
+        </div>        <div class='card' onclick='showInfo(7)'>
+            <h3>08. Gestión Ambiental y Hídrica</h3>
+            <p>Administración responsable del agua y biodiversidad para la sostenibilidad de la vida.</p>
+            <button class='btn-plus'>Ver Impacto +</button>
+        </div>        <div class='card' onclick='showInfo(8)'>
+            <h3>09. Salud y Bienestar</h3>
+            <p>Enfoque biopsicosocial para el equilibrio del individuo y su núcleo familiar.</p>
+            <button class='btn-plus'>Ver Impacto +</button>
+        </div>        <div class='card' onclick='showInfo(9)'>
+            <h3>10. Educación y Transferencia</h3>
+            <p>Formación técnica y ética para el ejercicio de deberes y responsabilidades.</p>
+            <button class='btn-plus'>Ver Impacto +</button>
+        </div>        <div class='card' onclick='showInfo(10)'>
+            <h3>11. Seguridad e Integración</h3>
+            <p>Protección soberana y seguridad ciudadana en todos los niveles de impacto.</p>
+            <button class='btn-plus'>Ver Impacto +</button>
         </div>
+    </div>
 
-        <div class="block-title">2. Soberanía y Futuro</div>
-        <div class="strategy-grid">
-            <div class="card-v51">
-                <img src="assets/infraestructura.jpg" class="card-image">
-                <div class="card-body-v51">
-                    <div class="card-title">02 INFRAESTRUCTURA</div>
-                    <p class="card-text">Trenes de Potencia Mundial: Conectividad total para la soberanía. Integración de cuencas hídricas y ejes ferroviarios para transformar el mapa logístico del Perú.</p>
-                </div>
-            </div>
-            <div class="card-v51">
-                <img src="assets/industrial.jpg" class="card-image">
-                <div class="card-body-v51">
-                    <div class="card-title">05 INDUSTRIAL</div>
-                    <p class="card-text">Valor Agregado: De la materia prima a la exportación tecnológica. Creación de complejos industriales en origen para multiplicar el empleo nacional.</p>
-                </div>
-            </div>
-            <div class="card-v51">
-                <img src="assets/tecnociencia.jpg" class="card-image">
-                <div class="card-body-v51">
-                    <div class="card-title">07 TECNOCIENCIA</div>
-                    <p class="card-text">Big Data Ciudadano: Tecnología contra la red de impunidad. Digitalización absoluta para una gestión pública transparente y eficiente.</p>
-                </div>
-            </div>
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle" style="color:#9c27b0;"></h2>
+            <p id="modalBody" style="font-size: 1.1em;"></p>
+            <hr style="border:0; border-top:1px solid #333; margin:20px 0;">
+            <p><strong>Impacto Multidimensional:</strong></p>
+            <p id="modalImpact" style="color: #ba68c8; font-style: italic;"></p>
+            <button onclick="closeModal()" class="btn-plus">Cerrar</button>
         </div>
-        
-        </div>
+    </div>
+
+    <script>
+        function showInfo(index) {
+            const titles = ["01. Identidad", "02. Ideología Productiva", "03. Infraestructura Estratégica", "04. Organización Ayni", "05. Blindaje Legal", "06. Desarrollo Industrial", "07. Tecnociencia", "08. Gestión Ambiental y Hídrica", "09. Salud y Bienestar", "10. Educación y Transferencia", "11. Seguridad e Integración"];
+            const info = [
+                "Autor: Fredy V51. Esta herramienta es el resultado del Proyecto Fénix para la centralización de inteligencia cívica.",
+                "Enfoque en la creación de riqueza social mediante el trabajo y la inversión, superando la dependencia de subsidios.",
+                "Red de transporte multimodal y conectividad digital. Incluye la gestión de campaña como puente de comunicación directa.",
+                "Modelo basado en el esfuerzo compartido. El bienestar individual es consecuencia de la disciplina colectiva.",
+                "Protección jurídica para asegurar que el entorno y el capital humano no sean vulnerados por la impunidad.",
+                "Fomento de plantas de procesamiento locales para dejar de exportar materia bruta y generar empleo calificado.",
+                "Sistemas de monitoreo en tiempo real para una gestión pública auditable y eficiente.",
+                "Protección de las fuentes de agua como activo estratégico nacional para la vida y la actividad humana.",
+                "Salud preventiva y mental como base para un ciudadano productivo y consciente de sus responsabilidades.",
+                "Educación orientada a la resolución de problemas reales y al uso ético de la tecnología.",
+                "Fronteras y ciudades seguras mediante integración tecnológica y control territorial efectivo."
+            ];
+            const impacts = "Individuo ? Familia ? Colectividad ? Localidad ? Región ? Nación ? Mundo";
+            
+            document.getElementById('modalTitle').innerText = titles[index];
+            document.getElementById('modalBody').innerText = info[index];
+            document.getElementById('modalImpact').innerText = impacts;
+            document.getElementById('infoModal').style.display = "block";
+        }
+        function closeModal() { document.getElementById('infoModal').style.display = "none"; }
+    </script>
 </body>
 </html>

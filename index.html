@@ -8,32 +8,49 @@
         :root { --bg: #0a0a0b; --card: #121214; --accent: #9b59b6; --text: #d1d1d1; --bright: #ffffff; }
         body { background: var(--bg); color: var(--text); font-family: 'Georgia', serif; padding: 20px; display: flex; justify-content: center; }
         .wrapper { max-width: 800px; width: 100% ; }
-        .seccion { background: var(--card); border: 1px solid #222; padding: 30px; border-radius: 4px; margin-bottom: 20px; }
-        h2 { color: var(--accent); font-family: sans-serif; font-size: 1.3em; margin: 0 0 10px 0; }
-        p { font-size: 1.1em; line-height: 1.7; text-align: justify; color: #e0e0e0; }
-        .btn-play { background: #1a1a1c; border: 1px solid var(--accent); color: var(--accent); padding: 12px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 15px; border-radius: 4px; }
+        .header { text-align: center; margin-bottom: 50px; }
+        .header h1 { font-size: 2.2em; color: var(--bright); font-weight: normal; margin: 0; }
+        .subtitle { color: var(--accent); font-weight: bold; text-transform: uppercase; letter-spacing: 4px; font-size: 0.8em; }
+        .seccion { background: var(--card); border: 1px solid #222; padding: 35px; border-radius: 4px; margin-bottom: 20px; }
+        h2 { color: var(--accent); font-family: sans-serif; font-size: 1.4em; margin: 0 0 15px 0; }
+        p { font-size: 1.15em; line-height: 1.8; text-align: justify; color: #e0e0e0; margin-bottom: 0; }
+        .btn-play { 
+            background: #1a1a1c; border: 1px solid var(--accent); color: var(--accent); 
+            padding: 14px; cursor: pointer; font-weight: bold; width: 100%; 
+            margin-top: 20px; border-radius: 2px; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .btn-play:hover { background: var(--accent); color: white; }
     </style>
 </head>
 <body>
     <div class="wrapper">
-        <h1 style="text-align:center; color:white;">Templanza del Fénix</h1>
-        
+        <div class="header">
+            <div class="subtitle">Iniciativa Estratégica</div>
+            <h1>Proyecto Templanza del Fénix</h1>
+        </div>
+
         <div class="seccion">
             <h2 id="h1">1. El Origen de la Convicción</h2>
             <p id="t1">Mientras otros compraban siglas, se optó por construir una institución. Superamos las exigencias más altas de nuestra historia, venciendo cada obstáculo legal con la fuerza de quienes no tienen nada que ocultar.</p>
-            <button class="btn-play" onclick="hablar('h1', 't1', 'm')">🔊 ESCUCHAR (VOZ MASCULINA)</button>
+            <button class="btn-play" onclick="hablar('h1', 't1', 'm')">🔊 ESCUCHAR</button>
         </div>
 
         <div class="seccion">
             <h2 id="h2">2. El Tamiz de la Crisis</h2>
             <p id="t2">Enfrentamos tormentas que habrían hundido a naves sin brújula. Las crisis sirvieron para tamizar la organización. Quienes buscaban el poder inmediato abandonaron la nave; quienes nos quedamos, demostramos que una idea es más grande que cualquier hombre.</p>
-            <button class="btn-play" onclick="hablar('h2', 't2', 'm')">🔊 ESCUCHAR (VOZ MASCULINA)</button>
+            <button class="btn-play" onclick="hablar('h2', 't2', 'm')">🔊 ESCUCHAR</button>
         </div>
 
         <div class="seccion">
             <h2 id="h3">3. Libertad y Humanismo</h2>
-            <p id="t3">Creemos en una cancha plana para todos. Defendemos la dignidad de cada ciudadano, sin importar su origen o identidad, porque la verdadera grandeza de una nación se construye con el esfuerzo honesto.</p>
-            <button class="btn-play" onclick="hablar('h3', 't3', 'f')">🔊 ESCUCHAR (VOZ FEMENINA)</button>
+            <p id="t3">Creemos en una cancha plana para todos. Defendemos la dignidad de cada ciudadano, sin importar su origen o identidad, porque la verdadera grandeza de una nación se construye con el esfuerzo honesto. No permitamos que el ruido oculte el valor de la mayoría esforzada.</p>
+            <button class="btn-play" onclick="hablar('h3', 't3', 'f')">🔊 ESCUCHAR</button>
+        </div>
+
+        <div class="seccion">
+            <h2 id="h4">4. La Reactivación de la Conciencia</h2>
+            <p id="t4">Proyecto Templanza es el canal para convocar a las voluntades silenciadas por el ruido político. Cancha plana no es quitar a unos para dar a otros; es nivelar el terreno para que el talento brille sin techos impuestos por el lobismo.</p>
+            <button class="btn-play" onclick="hablar('h4', 't4', 'm')">🔊 ESCUCHAR</button>
         </div>
     </div>
 
@@ -44,36 +61,42 @@
             const s = window.speechSynthesis;
             s.cancel();
 
-            const esMovil = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-            const factor = esMovil ? 1.3 : 1.0;
-
+            const esAndroid = /Android/i.test(navigator.userAgent);
+            const esMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            
             const mH = new SpeechSynthesisUtterance(h);
             const mT = new SpeechSynthesisUtterance(t);
-            
-            // BUSCADOR DE VOCES SEGÚN GÉNERO
-            const voces = s.getVoices();
-            let vozSeleccionada = voces.find(v => v.lang.includes('es') && (genero === 'm' ? v.name.includes('Google') : true));
-            
-            // Si no hay Google, buscar cualquier española
-            if(!vozSeleccionada) vozSeleccionada = voces.find(v => v.lang.includes('es'));
-
-            mH.voice = vozSeleccionada;
-            mT.voice = vozSeleccionada;
             mH.lang = 'es-ES'; mT.lang = 'es-ES';
-            
-            // Ajustes de Título
-            mH.pitch = genero === 'm' ? 0.6 : 1.0;
-            mH.rate = 0.75 * factor;
 
-            // Ajustes de Cuerpo
-            mT.pitch = genero === 'm' ? 0.8 : 1.1;
-            mT.rate = 0.9 * factor;
+            // BUSCADOR DE VOCES
+            const voces = s.getVoices();
+            let voz = voces.find(v => v.lang.includes('es') && (genero === 'm' ? (v.name.includes('Google') || v.name.includes('Male')) : true));
+            if(!voz) voz = voces.find(v => v.lang.includes('es'));
+            mH.voice = voz; mT.voice = voz;
+
+            // --- LÓGICA DE VELOCIDAD CALIBRADA ---
+            let rateH = 0.75; // Base título
+            let rateT = 0.90; // Base cuerpo
+
+            if (!esMobile) { 
+                // LAPTOP
+                if (genero === 'm') { rateH += 0.15; rateT += 0.15; }
+            } else if (esAndroid) {
+                // TABLET / CELULAR ANDROID
+                if (genero === 'f') { rateH += 0.1; rateT += 0.05; }
+                // Compensación base Android (factor 1.3 ya integrado en los cálculos)
+                rateH *= 1.3; rateT *= 1.3;
+            }
+
+            mH.pitch = (genero === 'm') ? 0.7 : 1.1;
+            mT.pitch = (genero === 'm') ? 0.8 : 1.1;
+            
+            mH.rate = rateH;
+            mT.rate = rateT;
 
             s.speak(mH);
             s.speak(mT);
         }
-        
-        // Carga inicial de voces para algunos navegadores móviles
         window.speechSynthesis.getVoices();
     </script>
 </body>

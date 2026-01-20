@@ -38,7 +38,7 @@
 
             // DETECCIÓN DE MÓVIL (Ajuste de compensación)
             const esMovil = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-            const factorCompensacion = esMovil ? 1.2 : 1.0; 
+            const factorCompensacion = esMovil ? 1.3 : 1.0; 
 
             const mH = new SpeechSynthesisUtterance(h);
             mH.lang = 'es-ES';
@@ -56,3 +56,4 @@
     </script>
 </body>
 </html>
+

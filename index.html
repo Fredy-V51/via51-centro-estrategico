@@ -3,127 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vía 51 - Centro Estratégico</title>
+    <title>Proyecto Templanza del Fénix</title>
     <style>
-        body { background-color: #0a0a0a; color: #e0e0e0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; text-align: center; }
-        .header { border-bottom: 2px solid #6a1b9a; padding-bottom: 20px; margin-bottom: 30px; }
-        h1 { color: #9c27b0; letter-spacing: 2px; }
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: auto; }
-        .card { background: #1a1a1a; border: 1px solid #333; padding: 20px; border-radius: 10px; transition: 0.3s; cursor: pointer; position: relative; overflow: hidden; }
-        .card:hover { border-color: #9c27b0; box-shadow: 0 0 15px rgba(156, 39, 176, 0.3); transform: translateY(-5px); }
-        h3 { color: #ba68c8; margin-top: 0; }
-        p { font-size: 0.9em; line-height: 1.4; color: #b0b0b0; }
-        .btn-plus { background: #4a148c; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; margin-top: 10px; font-size: 0.8em; }
-        .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); }
-        .modal-content { background: #1a1a1a; margin: 10% auto; padding: 30px; border: 1px solid #9c27b0; width: 80%; max-width: 600px; border-radius: 15px; text-align: left; }
+        :root { --bg: #0a0a0b; --card: #121214; --accent: #9b59b6; --text: #d1d1d1; --bright: #ffffff; }
+        body { background: var(--bg); color: var(--text); font-family: 'Georgia', serif; padding: 40px; display: flex; justify-content: center; }
+        .wrapper { max-width: 800px; width: 100% ; }
+        .header { text-align: center; margin-bottom: 60px; }
+        .header h1 { font-size: 2.4em; color: var(--bright); font-weight: normal; margin: 0; }
+        .subtitle { color: var(--accent); font-weight: bold; text-transform: uppercase; letter-spacing: 4px; font-size: 0.8em; }
+        .seccion { background: var(--card); border: 1px solid #222; padding: 40px; border-radius: 4px; margin-bottom: 25px; }
+        h2 { color: var(--accent); font-family: sans-serif; font-size: 1.4em; margin: 0 0 15px 0; }
+        p { font-size: 1.15em; line-height: 1.8; text-align: justify; margin: 0; color: #e0e0e0; }
+        .btn-play { 
+            background: #1a1a1c; border: 1px solid var(--accent); color: var(--accent);
+            padding: 12px 24px; border-radius: 2px; cursor: pointer; font-weight: bold;
+            display: flex; align-items: center; gap: 10px; margin-top: 20px;
+        }
+        .btn-play:hover { background: var(--accent); color: white; }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>VÍA 51 - CENTRO ESTRATÉGICO</h1>
-        <p>Recurso Tecnológico de Comunicación | Estándar de Calidad Mundial</p>
-    </div>
-
-    <div class="grid-container">
-                <div class='card' onclick='showInfo(0)'>
-            <h3>01. Identidad</h3>
-            <p>Autoría: Fredy V51. Registro de colaboradores y visión del Proyecto Fénix.</p>
-            <button class='btn-plus'>Ver Impacto +</button>
-        </div>        <div class='card' onclick='showInfo(1)'>
-            <h3>02. Ideología Productiva</h3>
-            <p>Tránsito del modelo asistencial al modelo de rentabilidad social y autonomía.</p>
-            <button class='btn-plus'>Ver Impacto +</button>
-        </div>        <div class='card' onclick='showInfo(2)'>
-            <h3>03. Infraestructura Estratégica</h3>
-            <p>Conectividad digital, transporte multimodal y gestión de campaña como motor de enlace.</p>
-            <button class='btn-plus'>Ver Impacto +</button>
-        </div>        <div class='card' onclick='showInfo(3)'>
-            <h3>04. Organización Ayni</h3>
-            <p>Sistemas de cooperación mutua y disciplina operativa para la eficiencia colectiva.</p>
-            <button class='btn-plus'>Ver Impacto +</button>
-        </div>        <div class='card' onclick='showInfo(4)'>
-            <h3>05. Blindaje Legal</h3>
-            <p>Marco jurídico robusto para la protección del ciudadano, el capital y el entorno natural.</p>
-            <button class='btn-plus'>Ver Impacto +</button>
-        </div>        <div class='card' onclick='showInfo(5)'>
-            <h3>06. Desarrollo Industrial</h3>
-            <p>Transformación de recursos en origen para la generación de valor agregado real.</p>
-            <button class='btn-plus'>Ver Impacto +</button>
-        </div>        <div class='card' onclick='showInfo(6)'>
-            <h3>07. Tecnociencia</h3>
-            <p>Uso de IA y Big Data para la transparencia pública y la optimización de procesos.</p>
-            <button class='btn-plus'>Ver Impacto +</button>
-        </div>        <div class='card' onclick='showInfo(7)'>
-            <h3>08. Gestión Ambiental y Hídrica</h3>
-            <p>Administración responsable del agua y biodiversidad para la sostenibilidad de la vida.</p>
-            <button class='btn-plus'>Ver Impacto +</button>
-        </div>        <div class='card' onclick='showInfo(8)'>
-            <h3>09. Salud y Bienestar</h3>
-            <p>Enfoque biopsicosocial para el equilibrio del individuo y su núcleo familiar.</p>
-            <button class='btn-plus'>Ver Impacto +</button>
-        </div>        <div class='card' onclick='showInfo(9)'>
-            <h3>10. Educación y Transferencia</h3>
-            <p>Formación técnica y ética para el ejercicio de deberes y responsabilidades.</p>
-            <button class='btn-plus'>Ver Impacto +</button>
-        </div>        <div class='card' onclick='showInfo(10)'>
-            <h3>11. Seguridad e Integración</h3>
-            <p>Protección soberana y seguridad ciudadana en todos los niveles de impacto.</p>
-            <button class='btn-plus'>Ver Impacto +</button>
+    <div class="wrapper">
+        <div class="header">
+            <div class="subtitle">Visión Estratégica</div>
+            <h1>Proyecto Templanza del Fénix</h1>
         </div>
-    </div>
 
-    <div id="infoModal" class="modal">
-        <div class="modal-content">
-            <h2 id="modalTitle" style="color:#9c27b0;"></h2>
-            <p id="modalBody" style="font-size: 1.1em;"></p>
-            <hr style="border:0; border-top:1px solid #333; margin:20px 0;">
-            <p><strong>Impacto Multidimensional:</strong></p>
-            <p id="modalImpact" style="color: #ba68c8; font-style: italic;"></p>
-            <button onclick="closeModal()" class="btn-plus">Cerrar</button>
+        <div class="seccion">
+            <h2 id="h1">1. El Origen de la Convicción</h2>
+            <p id="t1">Mientras otros compraban siglas, se optó por construir una institución. Superamos las exigencias más altas de nuestra historia, venciendo cada obstáculo legal con la fuerza de quienes no tienen nada que ocultar.</p>
+            <button class="btn-play" onclick="hablar('h1', 't1', 1.1, 0.85)">🔊 ESCUCHAR</button>
+        </div>
+
+        <div class="seccion">
+            <h2 id="h2">2. El Tamiz de la Crisis</h2>
+            <p id="t2">Enfrentamos tormentas que habrían hundido a naves sin brújula. Las crisis sirvieron para tamizar la organización. Quienes buscaban el poder inmediato abandonaron la nave; quienes nos quedamos, demostramos que una idea es más grande que cualquier hombre.</p>
+            <button class="btn-play" onclick="hablar('h2', 't2', 0.75, 0.85)">🔊 ESCUCHAR</button>
+        </div>
+
+        <div class="seccion">
+            <h2 id="h3">3. Una Postura de Libertad y Humanismo</h2>
+            <p id="t3">Creemos en una cancha plana para todos. Defendemos la dignidad de cada ciudadano, sin importar su origen o identidad, porque la verdadera grandeza de una nación se construye con el esfuerzo honesto. No permitamos que el ruido oculte el valor de la mayoría esforzada.</p>
+            <button class="btn-play" onclick="hablar('h3', 't3', 1.05, 0.9)">🔊 ESCUCHAR</button>
+        </div>
+
+        <div class="seccion">
+            <h2 id="h4">4. La Reactivación de la Conciencia</h2>
+            <p id="t4">Proyecto Templanza es el canal para convocar a las voluntades silenciadas por el ruido político. Cancha plana no es quitar a unos para dar a otros; es nivelar el terreno para que el talento brille sin techos impuestos por el lobismo.</p>
+            <button class="btn-play" onclick="hablar('h4', 't4', 1.0, 0.95)">🔊 ESCUCHAR</button>
         </div>
     </div>
 
     <script>
-        function showInfo(index) {
-            const titles = ["01. Identidad", "02. Ideología Productiva", "03. Infraestructura Estratégica", "04. Organización Ayni", "05. Blindaje Legal", "06. Desarrollo Industrial", "07. Tecnociencia", "08. Gestión Ambiental y Hídrica", "09. Salud y Bienestar", "10. Educación y Transferencia", "11. Seguridad e Integración"];
-            const info = [
-                "Autor: Fredy V51. Esta herramienta es el resultado del Proyecto Fénix para la centralización de inteligencia cívica.",
-                "Enfoque en la creación de riqueza social mediante el trabajo y la inversión, superando la dependencia de subsidios.",
-                "Red de transporte multimodal y conectividad digital. Incluye la gestión de campaña como puente de comunicación directa.",
-                "Modelo basado en el esfuerzo compartido. El bienestar individual es consecuencia de la disciplina colectiva.",
-                "Protección jurídica para asegurar que el entorno y el capital humano no sean vulnerados por la impunidad.",
-                "Fomento de plantas de procesamiento locales para dejar de exportar materia bruta y generar empleo calificado.",
-                "Sistemas de monitoreo en tiempo real para una gestión pública auditable y eficiente.",
-                "Protección de las fuentes de agua como activo estratégico nacional para la vida y la actividad humana.",
-                "Salud preventiva y mental como base para un ciudadano productivo y consciente de sus responsabilidades.",
-                "Educación orientada a la resolución de problemas reales y al uso ético de la tecnología.",
-                "Fronteras y ciudades seguras mediante integración tecnológica y control territorial efectivo."
-            ];
-            const impacts = "Individuo ? Familia ? Colectividad ? Localidad ? Región ? Nación ? Mundo";
-            
-            document.getElementById('modalTitle').innerText = titles[index];
-            document.getElementById('modalBody').innerText = info[index];
-            document.getElementById('modalImpact').innerText = impacts;
-            document.getElementById('infoModal').style.display = "block";
-        }
-        function closeModal() { document.getElementById('infoModal').style.display = "none"; }
-    </script>
+        function hablar(hId, tId, p, r) {
+            const h = document.getElementById(hId).innerText;
+            const t = document.getElementById(tId).innerText;
+            const s = window.speechSynthesis;
+            s.cancel();
 
-<hr style="border: 0; height: 1px; background: #333; margin: 50px 0;">
-<hr style="border: 0; height: 1px; background: #333; margin: 50px 0;">
-<hr style="border: 0; height: 1px; background: #333; margin: 50px 0;">
-<section id="conviccion" style="padding: 40px; background: linear-gradient(145deg, #0a0a0a, #1a1a1a); border-radius: 20px; text-align: center; margin: 20px;">
-    <h2 style="color: #9b59b6; font-size: 2em;">📢 Voz y Convicción</h2>
-    <p style="color: #bbb; max-width: 700px; margin: 20px auto;">Lee el manifiesto estratégico del Proyecto Fénix.</p>
-    
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 30px;">
-        <a href="manifiesto.html" style="text-decoration: none; background: #9b59b6; color: white; padding: 15px 30px; border-radius: 50px; font-weight: bold; transition: 0.3s;">
-            📖 Leer Manifiesto Completo
-        </a>
-    </div>
-</section> 
+            // TÍTULO: Fluidez total entre número y texto
+            const mH = new SpeechSynthesisUtterance(h);
+            mH.lang = 'es-ES'; mH.pitch = 0.6; mH.rate = 0.75;
+
+            // CUERPO: Configuración emocional
+            const mT = new SpeechSynthesisUtterance(t);
+            mT.lang = 'es-ES'; mT.pitch = p; mT.rate = r;
+
+            s.speak(mH);
+            s.speak(mT);
+        }
+    </script>
 </body>
 </html>
-
-
-

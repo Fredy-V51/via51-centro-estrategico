@@ -6,51 +6,26 @@
     <title>Proyecto Templanza del Fénix</title>
     <style>
         :root { --bg: #0a0a0b; --card: #121214; --accent: #9b59b6; --text: #d1d1d1; --bright: #ffffff; }
-        body { background: var(--bg); color: var(--text); font-family: 'Georgia', serif; padding: 40px; display: flex; justify-content: center; }
+        body { background: var(--bg); color: var(--text); font-family: 'Georgia', serif; padding: 20px; display: flex; justify-content: center; }
         .wrapper { max-width: 800px; width: 100% ; }
-        .header { text-align: center; margin-bottom: 60px; }
-        .header h1 { font-size: 2.4em; color: var(--bright); font-weight: normal; margin: 0; }
-        .subtitle { color: var(--accent); font-weight: bold; text-transform: uppercase; letter-spacing: 4px; font-size: 0.8em; }
-        .seccion { background: var(--card); border: 1px solid #222; padding: 40px; border-radius: 4px; margin-bottom: 25px; }
-        h2 { color: var(--accent); font-family: sans-serif; font-size: 1.4em; margin: 0 0 15px 0; }
-        p { font-size: 1.15em; line-height: 1.8; text-align: justify; margin: 0; color: #e0e0e0; }
-        .btn-play { 
-            background: #1a1a1c; border: 1px solid var(--accent); color: var(--accent);
-            padding: 12px 24px; border-radius: 2px; cursor: pointer; font-weight: bold;
-            display: flex; align-items: center; gap: 10px; margin-top: 20px;
-        }
-        .btn-play:hover { background: var(--accent); color: white; }
+        .seccion { background: var(--card); border: 1px solid #222; padding: 30px; border-radius: 4px; margin-bottom: 20px; }
+        h2 { color: var(--accent); font-family: sans-serif; font-size: 1.3em; margin: 0 0 10px 0; }
+        p { font-size: 1.1em; line-height: 1.7; text-align: justify; color: #e0e0e0; }
+        .btn-play { background: #1a1a1c; border: 1px solid var(--accent); color: var(--accent); padding: 12px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 15px; }
     </style>
 </head>
 <body>
-    <div class="wrapper">
-        <div class="header">
-            <div class="subtitle">Visión Estratégica</div>
-            <h1>Proyecto Templanza del Fénix</h1>
-        </div>
-
+    <div class="wrapper" id="content">
+        <h1 style="text-align:center; color:white;">Templanza del Fénix</h1>
         <div class="seccion">
             <h2 id="h1">1. El Origen de la Convicción</h2>
             <p id="t1">Mientras otros compraban siglas, se optó por construir una institución. Superamos las exigencias más altas de nuestra historia, venciendo cada obstáculo legal con la fuerza de quienes no tienen nada que ocultar.</p>
-            <button class="btn-play" onclick="hablar('h1', 't1', 1.1, 0.85)">🔊 ESCUCHAR</button>
+            <button class="btn-play" onclick="hablar('h1', 't1', 1.1, 0.9)">🔊 ESCUCHAR</button>
         </div>
-
         <div class="seccion">
             <h2 id="h2">2. El Tamiz de la Crisis</h2>
             <p id="t2">Enfrentamos tormentas que habrían hundido a naves sin brújula. Las crisis sirvieron para tamizar la organización. Quienes buscaban el poder inmediato abandonaron la nave; quienes nos quedamos, demostramos que una idea es más grande que cualquier hombre.</p>
-            <button class="btn-play" onclick="hablar('h2', 't2', 0.75, 0.85)">🔊 ESCUCHAR</button>
-        </div>
-
-        <div class="seccion">
-            <h2 id="h3">3. Una Postura de Libertad y Humanismo</h2>
-            <p id="t3">Creemos en una cancha plana para todos. Defendemos la dignidad de cada ciudadano, sin importar su origen o identidad, porque la verdadera grandeza de una nación se construye con el esfuerzo honesto. No permitamos que el ruido oculte el valor de la mayoría esforzada.</p>
-            <button class="btn-play" onclick="hablar('h3', 't3', 1.05, 0.9)">🔊 ESCUCHAR</button>
-        </div>
-
-        <div class="seccion">
-            <h2 id="h4">4. La Reactivación de la Conciencia</h2>
-            <p id="t4">Proyecto Templanza es el canal para convocar a las voluntades silenciadas por el ruido político. Cancha plana no es quitar a unos para dar a otros; es nivelar el terreno para que el talento brille sin techos impuestos por el lobismo.</p>
-            <button class="btn-play" onclick="hablar('h4', 't4', 1.0, 0.95)">🔊 ESCUCHAR</button>
+            <button class="btn-play" onclick="hablar('h2', 't2', 0.8, 0.9)">🔊 ESCUCHAR</button>
         </div>
     </div>
 
@@ -61,13 +36,19 @@
             const s = window.speechSynthesis;
             s.cancel();
 
-            // TÍTULO: Fluidez total entre número y texto
-            const mH = new SpeechSynthesisUtterance(h);
-            mH.lang = 'es-ES'; mH.pitch = 0.6; mH.rate = 0.75;
+            // DETECCIÓN DE MÓVIL (Ajuste de compensación)
+            const esMovil = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            const factorCompensacion = esMovil ? 1.2 : 1.0; 
 
-            // CUERPO: Configuración emocional
+            const mH = new SpeechSynthesisUtterance(h);
+            mH.lang = 'es-ES';
+            mH.pitch = 0.7;
+            mH.rate = 0.8 * factorCompensacion; // En Android será ~0.96, en PC 0.8
+
             const mT = new SpeechSynthesisUtterance(t);
-            mT.lang = 'es-ES'; mT.pitch = p; mT.rate = r;
+            mT.lang = 'es-ES';
+            mT.pitch = p;
+            mT.rate = r * factorCompensacion;
 
             s.speak(mH);
             s.speak(mT);
